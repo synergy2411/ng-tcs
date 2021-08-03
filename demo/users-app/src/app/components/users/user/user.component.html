@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-3 col-md-3">
+    <img [src]="user.image" class="rounded-circle img-fluid" />
+    <div class="text-center">
+      <button (click)="onEventFire()" class="btn btn-primary btn-block">More Info</button>
+    </div>
+  </div>
+  <div class="col-sm-9 col-md-9">
+    <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+    <p>Income : <span [innerHTML]="user.income"></span></p>
+    <p>Date of Birth : {{ user.dob }}</p>
+    <p>
+      Total Votes: {{ user.vote }}
+      <input
+        type="number"
+        [value]="user.vote"
+        (change)="user.vote = $event.target.value"
+      />
+      <input type="number" [(ngModel)]="user.vote" />
+    </p>
+  </div>
+</div>

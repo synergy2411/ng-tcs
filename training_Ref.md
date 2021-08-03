@@ -41,3 +41,16 @@
 - ng new <project-name> | users-app
 - cd users-app
 - ng serve --open
+
+WebpackDevServer - localhost:4200
+
+- ng build --production
+
+# Each ng App should have one Root Module and one Root Component
+
+# Angular CLI Tool : can generate any building block e.g Component | Directives | Pipes| Services | Module
+
+# ng g c components/users/user
+
+# to Install Bootstrap
+- npm install bootstrap@4 --save
