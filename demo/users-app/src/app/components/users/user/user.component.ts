@@ -13,7 +13,14 @@ export class UserComponent
   @Input() user : User
   @Input() title : string
   @Output() childEvent = new EventEmitter<User>()
+  myDynamicClass = {'my-border' : true, 'my-feature' : false}
+  myDynamicStyle = { fontSize : "1.3em" }
+  num = 101;
 
+  onToggle(){
+    this.myDynamicClass['my-border'] = !this.myDynamicClass['my-border']
+    this.myDynamicClass['my-feature'] = !this.myDynamicClass['my-feature']
+  }
   onEventFire(){
     this.childEvent.emit(this.user)
   }

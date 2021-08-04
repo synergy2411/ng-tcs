@@ -10,10 +10,10 @@ import { USER_DATA } from '../../data/mock';
 export class UsersComponent implements OnInit{
   title = "The title"
   showUser = false;
-  user : User;
+  users : User[];
 
   ngOnInit(){
-    this.user = USER_DATA;
+    this.users = USER_DATA;
   }
 
   onMoreInfo(usr : User){

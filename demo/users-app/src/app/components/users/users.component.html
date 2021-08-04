@@ -1,10 +1,12 @@
 <div class="container">
-  <button (click)="showUser = !showUser">Toggle App User</button>
+  <!-- <button (click)="showUser = !showUser">Toggle App User</button> -->
 <ul class="list-group">
-  <li class="list-group-item">
-
-
-    <app-user *ngIf="showUser"
+  <li class="list-group-item" *ngFor="let user of users; first as isFirst; last as isLast; even as isEven; odd as isOdd; index as i">
+    <!-- is this First? {{ isFirst }} | Is this Last? {{ isLast }} <br>
+    Is this Even? {{ isEven }} | Is this Odd? {{ isOdd }} <br>
+    Index : {{ i }} -->
+    <!-- <app-user *ngIf="showUser" -->
+    <app-user
       (childEvent) ="onMoreInfo($event)"
       [user]="user" [title]="title" >
 

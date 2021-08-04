@@ -8,12 +8,18 @@
     </div>
   </div>
   <div class="col-sm-9 col-md-9">
-    <h4>Title from Parent : {{ title }}</h4>
-    <h3>{{ user.firstName }} {{ user.lastName }}</h3>
-    <p>Income : <span [innerHTML]="user.income"></span></p>
-    <p>Date of Birth : {{ user.dob }}</p>
+
+    <h3 app-highlight >{{ user.firstName }} {{ user.lastName }}</h3>
+
+    <p *ngIf="user.isWorking; else ElseTemplate" [ngStyle]="myDynamicStyle">Income : <span [innerHTML]="user.income"></span></p>
+
+    <!-- <p [ngClass]="['my-border', 'my-feature']" class="my-border my-feature">Date of Birth : {{ user.dob }}</p> -->
+    <p [ngClass]="myDynamicClass">Date of Birth : {{ user.dob }}
+      <button class="btn btn-default btn-sm" (click)="onToggle()">Toggle Class</button>
+    </p>
+
     <p>
-      Total Votes: {{ user.vote }}
+      Total Votes: {{ user.vote }} <br>
       <input
         type="number"
         [value]="user.vote"
@@ -22,7 +28,17 @@
       <input type="number" [(ngModel)]="user.vote" />
       <ng-content></ng-content>
     </p>
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="98">Output 1</div>
+      <div *ngSwitchCase="99">Output 2</div>
+      <div *ngSwitchCase="101">Output 3</div>
+      <div *ngSwitchDefault>Default Output</div>
+    </div>
   </div>
 </div>
+
+<ng-template #ElseTemplate>
+  <p>Mr. {{user.lastName}} is not working now.</p>
+</ng-template>
 
 <ng-content select="footer"></ng-content>
