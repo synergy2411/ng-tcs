@@ -1,5 +1,8 @@
 <ng-content select="header"></ng-content>
 
+<!-- {{user | json}} -->
+
+
 <div class="row">
   <div class="col-sm-3 col-md-3">
     <img [src]="user.image" class="rounded-circle img-fluid" />
@@ -9,17 +12,21 @@
   </div>
   <div class="col-sm-9 col-md-9">
 
-    <h3 app-highlight >{{ user.firstName }} {{ user.lastName }}</h3>
+    <h3 app-highlight [favColor]="'yellow'" >
+      {{ user.firstName | titlecase}} {{ user.lastName | uppercase}}
+    </h3>
 
-    <p *ngIf="user.isWorking; else ElseTemplate" [ngStyle]="myDynamicStyle">Income : <span [innerHTML]="user.income"></span></p>
+    <p *ngIf="user.isWorking; else ElseTemplate" [ngStyle]="myDynamicStyle">
+      Income : <span [innerHTML]="user.income | currency : 'INR'"></span>
+    </p>
 
     <!-- <p [ngClass]="['my-border', 'my-feature']" class="my-border my-feature">Date of Birth : {{ user.dob }}</p> -->
-    <p [ngClass]="myDynamicClass">Date of Birth : {{ user.dob }}
+    <p [ngClass]="myDynamicClass">Date of Birth : {{ user.dob | date : 'MM/dd/yyyy'}}
       <button class="btn btn-default btn-sm" (click)="onToggle()">Toggle Class</button>
     </p>
 
     <p>
-      Total Votes: {{ user.vote }} <br>
+      Total Votes: {{ user.vote | percent }} <br>
       <input
         type="number"
         [value]="user.vote"
