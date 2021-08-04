@@ -1,9 +1,18 @@
 <div class="container">
+  <button (click)="showUser = !showUser">Toggle App User</button>
 <ul class="list-group">
   <li class="list-group-item">
-    <app-user
+
+
+    <app-user *ngIf="showUser"
       (childEvent) ="onMoreInfo($event)"
-      [user]="user"></app-user>
+      [user]="user" [title]="title" >
+
+      <!-- <header>Header Information</header>
+      <main>Main Contents - {{user.lastName}}</main>
+      <footer>Footer Info</footer> -->
+    </app-user>
+    <!-- <input type="text" [(ngModel)]="title"> -->
   </li>
 </ul>
 </div>

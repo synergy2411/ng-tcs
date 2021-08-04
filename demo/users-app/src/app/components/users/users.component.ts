@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector : "app-users",
@@ -7,7 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class UsersComponent{
-  user = {
+  title = "The title"
+  showUser = false;
+  user : User = {
     firstName : "bill",
     lastName : "gates",
     income : 50000,
@@ -17,7 +20,7 @@ export class UsersComponent{
     image : "assets/images/bill.jpg",
     vote : 120
   }
-  onMoreInfo(usr : any){
+  onMoreInfo(usr : User){
     // console.log("Event Data [PARENT] ", eventdata);
     alert(`Mr. ${usr.lastName} is working with ${usr.company}`)
   }
