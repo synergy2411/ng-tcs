@@ -9,6 +9,7 @@ import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { NationalCodePipe } from './pipes/national-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 @NgModule({
   declarations: [   // Components | Directives | Pipes
@@ -17,7 +18,8 @@ import { LoginComponent } from './components/auth/login/login.component';
     PipeDemoComponent,
     NationalCodePipe,
     FilterPipe,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [        // Modules - Built-in | Custom
     BrowserModule,
