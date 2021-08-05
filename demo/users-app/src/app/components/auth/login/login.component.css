@@ -1,0 +1,15 @@
+.ng-invalid.ng-dirty[name="email"]{
+  border-left : 4px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="email"]{
+  border-left: 4px greenyellow solid;
+}
+
+.ng-invalid.ng-dirty[name="password"]{
+  border-left : 4px tomato solid;
+}
+
+.ng-valid.ng-dirty[name="password"]{
+  border-left: 4px greenyellow solid;
+}

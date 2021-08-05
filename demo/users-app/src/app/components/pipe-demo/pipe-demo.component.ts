@@ -25,9 +25,9 @@ export class PipeDemoComponent implements OnInit {
     { label : "to renew car insurance", status : "pending"},
   ]
   onAddItem(){
-    // Pure Change
-    // this.todoCollection = []
-    // Impure Change
+    // Pure Change - Angular will trigger the digest cycle, hence pure pipe will work
+    // this.todoCollection = [...this.todoCollection, {label : "", status : ""}]
+    // Impure Change - Angular will not trigger digest cycle by default, hence need to make pipe impure
     this.todoCollection.push({label : "New Item", status : "pending"})
   }
 
