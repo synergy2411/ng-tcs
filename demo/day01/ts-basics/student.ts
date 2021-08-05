@@ -2,12 +2,8 @@
 
 export class Student {
     // private firstName : string;
-    // private lastName : string;
-    constructor(
-        private firstName : string, 
-        private lastName : string){
+    constructor(private firstName : string, private lastName : string){
         // this.firstName = firstName;
-        // this.lastName = lastName;
     }
     sayHello () : string{
         return `Hello ${this.firstName} ${this.lastName}`
