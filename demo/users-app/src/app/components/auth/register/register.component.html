@@ -6,27 +6,57 @@
           <h4 class="text-center">Register Form</h4>
         </div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="registerForm">
             <!-- Username -->
             <div class="form-group">
               <label for="username">Username : </label>
-              <input type="text" name="username" class="form-control">
+              <input type="text"
+                name="username"
+                class="form-control"
+                [formControl]="username">
+                <div class="alert alert-danger" [hidden]="username.valid || username.untouched">
+                  <p>*Some Problem with Username field.</p>
+                  <div [hidden]="!username.hasError('required')">
+                    <p>- Username is required field</p>
+                  </div>
+                  <div [hidden]="!username.hasError('email')">
+                    <p>- Username must be valid email</p>
+                  </div>
+                </div>
             </div>
             <!-- Password -->
             <div class="form-group">
               <label for="password">Password :</label>
-              <input type="password" name="password" class="form-control">
+              <input type="password"
+                name="password"
+                class="form-control"
+                [formControl]="password">
+                <div class="alert alert-danger" [hidden]="password.valid || password.untouched">
+                  *Some problem with password field
+                  <div [hidden]="!password.hasError('required')">
+                    <p>- Password is required field</p>
+                  </div>
+                  <div [hidden]="!password.hasError('minlength')">
+                    <p>- Password must be 6 characters long</p>
+                  </div>
+                  <div [hidden]="!password.hasError('hasExclamationMark')">
+                    <p>- Password must have Exclamation Mark</p>
+                  </div>
+                </div>
             </div>
             <!-- Buttons -->
             <div class="form-group">
               <div class="row">
                 <div class="col-6">
-                  <button class="btn btn-dark btn-block">
+                  <button
+                    [disabled]="registerForm.invalid"
+                    class="btn btn-dark btn-block"
+                    (click)="onRegister()">
                     Register
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-warning btn-block">
+                  <button class="btn btn-warning btn-block" (click)="onReset()">
                     Reset
                   </button>
                 </div>
