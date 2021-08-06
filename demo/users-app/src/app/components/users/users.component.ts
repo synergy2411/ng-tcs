@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
-import { USER_DATA } from '../../data/mock';
+import { DataService } from 'src/app/srevices/data.service';
+
 @Component({
   selector : "app-users",
   templateUrl : "./users.component.html",
@@ -12,12 +13,25 @@ export class UsersComponent implements OnInit{
   showUser = false;
   users : User[];
 
+ constructor(private dataService : DataService){}
+
   ngOnInit(){
-    this.users = USER_DATA;
+   this.dataService.getUser()
+    .subscribe((data: User[])=>{
+      this.users = data;
+    })
   }
 
   onMoreInfo(usr : User){
-    // console.log("Event Data [PARENT] ", eventdata);
     alert(`Mr. ${usr.lastName} is working with ${usr.company}`)
   }
+
+  getCounter(){
+    return this.dataService.getCounter();
+  }
+
+  increaseCounter(){
+    this.dataService.increaseCounter();
+  }
+
 }

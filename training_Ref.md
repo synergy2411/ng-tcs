@@ -54,3 +54,13 @@ WebpackDevServer - localhost:4200
 
 # to Install Bootstrap
 - npm install bootstrap@4 --save
+
+# Service Singleton is restricted to injected Scope
+
+# Hierarchical Injection
+
+- If we provide Service in Root Module : Singleton instance will be available to All Components & All Services
+
+- If we provide Service in Root Component : Singleton instance will be available to Root Component and its child component, but not in other services
+
+- If we provide service in Other Components : Singleton instance will be available to only that component and its child component, but not in other services

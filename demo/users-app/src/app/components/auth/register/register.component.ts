@@ -15,9 +15,21 @@ export class RegisterComponent implements OnInit {
   password = new FormControl('', [
     Validators.required,
     Validators.minLength(6),
-    this.exclamationMarkValidation
+    // Validators.pattern(/^[\d]{3}-[\d]{3}$/),   // 123-456
+    this.exclamationMarkValidation,
+    // this.maxLimitValidator(6)
   ])
   registerForm : FormGroup
+
+  // maxLimitValidator(len: number){
+  //   return function(control :AbstractControl){
+  //     if(control.value.length <= len){
+  //       return null;
+  //     }else{
+  //       return {hasMaxLength : true}
+  //     }
+  //   }
+  // }
 
   exclamationMarkValidation(control : AbstractControl): ValidationErrors | null{
     const hasExclamation = control.value.indexOf("!") >= 0

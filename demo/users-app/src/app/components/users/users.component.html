@@ -1,4 +1,12 @@
 <div class="container">
+
+  <!-- {{ users | json }} -->
+
+  <h4>Counter : {{ getCounter() }}</h4>
+  <button class="btn btn-dark" (click)="increaseCounter()">Increase Counter</button>
+
+
+
   <!-- <button (click)="showUser = !showUser">Toggle App User</button> -->
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let user of users; first as isFirst; last as isLast; even as isEven; odd as isOdd; index as i">
