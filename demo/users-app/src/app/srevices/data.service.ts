@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
-import { USER_DATA } from '../data/mock';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { User } from '../model/user';
 
 @Injectable({
@@ -20,9 +19,6 @@ export class DataService{
   }
   getUser(){
     return this.httpClient.get<User[]>("assets/data/userdata.json")
-            .pipe(map((response) => <User[]>response['userdata']))
-
-    // {userdata : User[]}
+            .pipe(map((response) =><User[]>response['userdata']))
   }
-
 }

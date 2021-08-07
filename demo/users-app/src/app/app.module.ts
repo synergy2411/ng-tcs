@@ -12,6 +12,7 @@ import { UsersComponent } from './components/users/users.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NationalCodePipe } from './pipes/national-code.pipe';
+import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NationalCodePipe } from './pipes/national-code.pipe';
     NationalCodePipe,
     FilterPipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ObservableDemoComponent
   ],
   imports: [        // Modules - Built-in | Custom
     BrowserModule,

@@ -1,0 +1,16 @@
+<button class="btn btn-secondary" (click)="onSubscribe()">
+  Subscribe
+</button>
+
+<button class="btn btn-primary" #btnClick >Click Me</button>
+
+<hr>
+
+
+<input type="text" #search />
+<br>
+<ul>
+  <li *ngFor="let repo of repos">
+    {{repo.url}}
+  </li>
+</ul>

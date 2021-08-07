@@ -64,3 +64,8 @@ WebpackDevServer - localhost:4200
 - If we provide Service in Root Component : Singleton instance will be available to Root Component and its child component, but not in other services
 
 - If we provide service in Other Components : Singleton instance will be available to only that component and its child component, but not in other services
+
+
+# Observables
+- By default are Synchronous
+- Observables do not get completed, if any error occured on stream
