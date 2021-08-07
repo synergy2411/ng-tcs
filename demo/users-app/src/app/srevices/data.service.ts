@@ -8,6 +8,7 @@ import { User } from '../model/user';
 })
 export class DataService{
 
+  baseURL : string = "https://the-tcs-users-default-rtdb.firebaseio.com/userdata.json"
   constructor(private httpClient : HttpClient){}
 
   private counter: number = 0;
@@ -18,7 +19,7 @@ export class DataService{
     this.counter++;
   }
   getUser(){
-    return this.httpClient.get<User[]>("assets/data/userdata.json")
-            .pipe(map((response) =><User[]>response['userdata']))
+    return this.httpClient.get<User[]>(this.baseURL)
+            // .pipe(map((response) =><User[]>response['userdata']))
   }
 }
