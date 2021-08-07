@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { DataService } from 'src/app/srevices/data.service';
 
@@ -8,21 +9,25 @@ import { DataService } from 'src/app/srevices/data.service';
   styleUrls : [`./users.component.css`]
 })
 
-export class UsersComponent implements OnInit{
+export class UsersComponent implements OnInit, OnDestroy{
   title = "The title"
   showUser = false;
   users : User[];
+  unSubUsers$ : Subscription;
 
  constructor(private dataService : DataService){}
 
   ngOnInit(){
-   this.dataService.getUser()
+   this.unSubUsers$=this.dataService.getUser()
     .subscribe((data)=>{
       console.log(data);
       this.users = data;
     })
   }
 
+  ngOnDestroy(){
+    this.unSubUsers$.unsubscribe();
+  }
   onMoreInfo(usr : User){
     alert(`Mr. ${usr.lastName} is working with ${usr.company}`)
   }

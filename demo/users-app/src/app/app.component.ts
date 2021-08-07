@@ -7,6 +7,7 @@ import { DataService } from './srevices/data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showCmp : boolean = true
   constructor(private dataService : DataService){}
   getCounter(){
     return this.dataService.getCounter()
