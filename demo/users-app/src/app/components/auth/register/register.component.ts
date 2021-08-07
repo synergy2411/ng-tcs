@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { AuthService } from 'src/app/srevices/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -21,22 +22,14 @@ export class RegisterComponent implements OnInit {
   ])
   registerForm : FormGroup
 
-  // maxLimitValidator(len: number){
-  //   return function(control :AbstractControl){
-  //     if(control.value.length <= len){
-  //       return null;
-  //     }else{
-  //       return {hasMaxLength : true}
-  //     }
-  //   }
-  // }
-
   exclamationMarkValidation(control : AbstractControl): ValidationErrors | null{
     const hasExclamation = control.value.indexOf("!") >= 0
     return hasExclamation ? null : { hasExclamationMark : true };
   }
 
-  constructor(private fb : FormBuilder) {
+  constructor(
+      private fb : FormBuilder,
+      private auhtService : AuthService) {
     this.registerForm = this.fb.group({
       username : this.username,
       password : this.password
@@ -45,6 +38,10 @@ export class RegisterComponent implements OnInit {
 
    onRegister(){
      console.log(this.registerForm);
+     this.auhtService.register(
+       this.registerForm.value.username,
+       this.registerForm.value.password
+     )
    }
 
    onReset(){

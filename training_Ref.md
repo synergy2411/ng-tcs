@@ -69,3 +69,6 @@ WebpackDevServer - localhost:4200
 # Observables
 - By default are Synchronous
 - Observables do not get completed, if any error occured on stream
+
+# Firebase SDK
+- npm install firebase --save
