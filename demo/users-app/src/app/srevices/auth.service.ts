@@ -24,23 +24,29 @@ export class AuthService {
         console.log("Login Successfully")
         firebase.auth().currentUser.getIdToken()
           .then(token => {
-            console.log("TOKEN - ", token)
             this.token = token;
-            localStorage.setItem("token", token);
+            // localStorage.setItem("token", token)
           })
       }).catch(err => console.error(err))
   }
 
   getToken(){
-    // return this.token;
-    const token = localStorage.getItem("token")
-    return token;
+    return this.token;
+    // const token = localStorage.getItem("token")
+    // return token;
   }
 
   isAuthenticated(){
-    const token = localStorage.getItem("token")
-    return token != null;
+    return this.token != null;
+    // const token = localStorage.getItem("token")
+    // return token != null;
   }
 
+  logout(){
+    firebase.auth().signOut()
+      .then(response => {
+        this.token = null;
+      }).catch(err => console.log(err))
+  }
 
 }

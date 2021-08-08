@@ -1,14 +1,24 @@
-<nav class="nav">
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['login']">Login</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['register']">Register</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['pipe']">Pipe</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['observables']">Observables</a>
-  </li>
-</nav>
+<div class="row">
+  <div class="col-md-10 col-sm-10">
+    <nav class="nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['login']">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['register']">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['pipe']">Pipe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['observables']">Observables</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['users']">Users</a>
+      </li>
+    </nav>
+  </div>
+  <div class="col-md-2 col-sm-2">
+    <button class="btn btn-default" (click)="onLogout()">Logout</button>
+  </div>
+</div>
