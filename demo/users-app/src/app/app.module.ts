@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,6 +13,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NationalCodePipe } from './pipes/national-code.pipe';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { AuthInterceptor } from './srevices/auth-interceptor.service';
 
 
 @NgModule({
@@ -32,7 +33,11 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],    // Services -
+  providers: [ {
+    provide : HTTP_INTERCEPTORS,
+    useClass : AuthInterceptor,
+    multi : true
+  } ],    // Services -
   bootstrap: [AppComponent]
 })
 export class AppModule { }

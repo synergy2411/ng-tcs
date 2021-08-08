@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { User } from '../model/user';
@@ -24,9 +24,11 @@ export class DataService{
     this.counter++;
   }
   getUser(){
-    return this.httpClient.get<User[]>(`${this.baseURL}?auth=${this.authService.getToken()}`)
+    return this.httpClient.get<User[]>(`${this.baseURL}`)
+    // return this.httpClient.get<User[]>(`${this.baseURL}?auth=${this.authService.getToken()}`)
             // .pipe(map((response) =><User[]>response['userdata']))
   }
+
 
 
 }

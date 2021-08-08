@@ -26,16 +26,20 @@ export class AuthService {
           .then(token => {
             console.log("TOKEN - ", token)
             this.token = token;
+            localStorage.setItem("token", token);
           })
       }).catch(err => console.error(err))
   }
 
   getToken(){
-    return this.token;
+    // return this.token;
+    const token = localStorage.getItem("token")
+    return token;
   }
 
   isAuthenticated(){
-    return this.token != null;
+    const token = localStorage.getItem("token")
+    return token != null;
   }
 
 
