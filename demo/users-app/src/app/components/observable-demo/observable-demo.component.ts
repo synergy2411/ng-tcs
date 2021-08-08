@@ -77,18 +77,18 @@ export class ObservableDemoComponent implements OnInit, OnDestroy{
 
 
     // TypeAhead Suggestion
-    // const search$ = fromEvent(this.search.nativeElement,"input")
-    // search$.pipe(
-    //   debounceTime(1000),
-    //   switchMap((event : any) => {
-    //     return this.httpClient.get(`https://api.github.com/users/${event.target.value}/repos`)
-    //             // .pipe()
-    //     // return ajax.getJSON(`https://api.github.com/users/${event.target.value}/repos`)
-    //   })
-    // ).subscribe((repoData:any) => {
-    //   console.log(repoData)
-    //   this.repos = repoData;
-    // })
+    const search$ = fromEvent(this.search.nativeElement,"input")
+    search$.pipe(
+      debounceTime(1000),
+      switchMap((event : any) => {
+        return this.httpClient.get(`https://api.github.com/users/${event.target.value}/repos`)
+                // .pipe()
+        // return ajax.getJSON(`https://api.github.com/users/${event.target.value}/repos`)
+      })
+    ).subscribe((repoData:any) => {
+      console.log(repoData)
+      this.repos = repoData;
+    })
 
     // Merge -> Merge All the request/observable
     // Switch -> stop the previous observable and give the result of new observable

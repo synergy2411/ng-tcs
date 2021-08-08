@@ -1,6 +1,7 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router'
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { NationalCodePipe } from './pipes/national-code.pipe';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 import { AuthInterceptor } from './srevices/auth-interceptor.service';
 import { LoggerInterceptor } from './srevices/logger.interceptor';
+import { APP_ROUTES } from './app.routes';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { LoggerInterceptor } from './srevices/logger.interceptor';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [ {
     provide : HTTP_INTERCEPTORS,
