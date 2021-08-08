@@ -28,6 +28,12 @@ export class DataService{
     // return this.httpClient.get<User[]>(`${this.baseURL}?auth=${this.authService.getToken()}`)
             // .pipe(map((response) =><User[]>response['userdata']))
   }
+  createUser(){
+    this.httpClient.post(this.baseURL, {
+      email : "email@test.com",
+      age : 32
+    } ).subscribe(console.log)
+  }
 
 
 

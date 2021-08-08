@@ -48,7 +48,7 @@ export class AuthService {
     firebase.auth().signOut()
       .then(response => {
         this.token = null;
-        this.router.navigate(['login'])
+        this.router.navigate(['login'], { queryParams : {age:99} })
       }).catch(err => console.log(err))
   }
 
