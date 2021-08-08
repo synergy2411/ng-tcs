@@ -17,6 +17,7 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
 import { AuthInterceptor } from './srevices/auth-interceptor.service';
 import { LoggerInterceptor } from './srevices/logger.interceptor';
 import { APP_ROUTES } from './app.routes';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { APP_ROUTES } from './app.routes';
     FilterPipe,
     LoginComponent,
     RegisterComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    HeaderComponent
   ],
   imports: [        // Modules - Built-in | Custom
     BrowserModule,

@@ -6,7 +6,12 @@ import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 
 export const APP_ROUTES: Routes = [
   {
-    path: '',                     // http://localhost:4200
+    path : "",                     // http://localhost:4200/
+    redirectTo : "login",
+    pathMatch : 'full'
+  },
+  {
+    path: 'login',                     // http://localhost:4200/login
     component: LoginComponent,
   },
   {
@@ -23,7 +28,7 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: '**',                      // http://localhost:4200/anywhere
-    redirectTo: '/',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
 ];
