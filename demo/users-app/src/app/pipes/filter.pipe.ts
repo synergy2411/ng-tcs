@@ -9,7 +9,6 @@ export class FilterPipe implements PipeTransform {
     todoCollection: Array<{ label: string; status: string }>,
     filteredStatus: string
   ): Array<{ label: string; status: string }> {
-    console.log('[TRANSFORM]');
     if (filteredStatus === '') {
       return todoCollection;
     }
