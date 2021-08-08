@@ -14,6 +14,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { NationalCodePipe } from './pipes/national-code.pipe';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 import { AuthInterceptor } from './srevices/auth-interceptor.service';
+import { LoggerInterceptor } from './srevices/logger.interceptor';
 
 
 @NgModule({
@@ -36,6 +37,10 @@ import { AuthInterceptor } from './srevices/auth-interceptor.service';
   providers: [ {
     provide : HTTP_INTERCEPTORS,
     useClass : AuthInterceptor,
+    multi : true
+  },{
+    provide : HTTP_INTERCEPTORS,
+    useClass : LoggerInterceptor,
     multi : true
   } ],    // Services -
   bootstrap: [AppComponent]
