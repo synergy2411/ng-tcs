@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { User } from '../model/user';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn : 'root'
@@ -9,7 +10,11 @@ import { User } from '../model/user';
 export class DataService{
 
   baseURL : string = "https://the-tcs-users-default-rtdb.firebaseio.com/userdata.json"
-  constructor(private httpClient : HttpClient){}
+
+  constructor(
+    private httpClient : HttpClient,
+    private authService: AuthService
+    ){}
 
   private counter: number = 0;
   getCounter(){
@@ -19,7 +24,9 @@ export class DataService{
     this.counter++;
   }
   getUser(){
-    return this.httpClient.get<User[]>(this.baseURL)
+    return this.httpClient.get<User[]>(`${this.baseURL}?auth=${this.authService.getToken()}`)
             // .pipe(map((response) =><User[]>response['userdata']))
   }
+
+
 }

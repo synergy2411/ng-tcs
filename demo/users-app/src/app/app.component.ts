@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './srevices/data.service';
 import firebase from 'firebase';
+import { AuthService } from './srevices/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,10 @@ import firebase from 'firebase';
 export class AppComponent implements OnInit{
   showCmp : boolean = true
 
-  constructor(private dataService : DataService){}
+  constructor(
+    private dataService : DataService,
+    private authService :  AuthService
+    ){}
 
   ngOnInit(){
     firebase.initializeApp({
@@ -23,5 +27,8 @@ export class AppComponent implements OnInit{
   }
   increaseCounter(){
     this.dataService.increaseCounter()
+  }
+  isUserAuthenticated(){
+    return this.authService.isAuthenticated()
   }
 }
