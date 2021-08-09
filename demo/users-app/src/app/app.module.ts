@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
 
+import { EmployeeModule } from './modules/employee/employee.module'
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -43,7 +45,8 @@ import { SpecificationComponent } from './components/product/specification/speci
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    EmployeeModule
   ],
   providers: [ {
     provide : HTTP_INTERCEPTORS,
