@@ -39,7 +39,7 @@ export const APP_ROUTES: Routes = [
     component : ProductComponent,
     children : [
       {
-        path : "overview",         // http://localhost:4200/product/overview
+        path : "overview/:productId/:productName",     // http://localhost:4200/product/overview/99
         component : OverviewComponent
       },
       {
