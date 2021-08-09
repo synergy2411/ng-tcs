@@ -11,7 +11,8 @@ import { NewEmployeeComponent } from './components/new-employee/new-employee.com
 export class EmployeeModule{}
 
 // Eagerly Loaded -  Load it through Root Module
-// Lazily Loaded - Load it through Routing
+// Lazily (on-demand) Loaded  - Load it through Routing
+
 // ng g c modules/employee/components/new-employee
 // ng g d modules/employee/directives/new-directive
 // ng g p modules/employee/pipes/new-directive
