@@ -72,3 +72,6 @@ WebpackDevServer - localhost:4200
 
 # Firebase SDK
 - npm install firebase --save
+
+# to add Angular material component
+- ng add @angular/material

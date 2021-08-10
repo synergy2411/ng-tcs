@@ -2,6 +2,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
+import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card'
 
 import { EmployeeModule } from './modules/employee/employee.module'
 
@@ -23,6 +25,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductComponent } from './components/product/product.component';
 import { OverviewComponent } from './components/product/overview/overview.component';
 import { SpecificationComponent } from './components/product/specification/specification.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCompComponent } from './components/mat-comp/mat-comp.component';
 
 
 @NgModule({
@@ -38,7 +42,8 @@ import { SpecificationComponent } from './components/product/specification/speci
     HeaderComponent,
     ProductComponent,
     OverviewComponent,
-    SpecificationComponent
+    SpecificationComponent,
+    MatCompComponent
   ],
   imports: [        // Modules - Built-in | Custom
     BrowserModule,
@@ -46,7 +51,10 @@ import { SpecificationComponent } from './components/product/specification/speci
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
-    EmployeeModule
+    EmployeeModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [ {
     provide : HTTP_INTERCEPTORS,

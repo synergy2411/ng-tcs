@@ -10,7 +10,7 @@ import { AuthService } from './srevices/auth.service';
 })
 export class AppComponent implements OnInit{
   showCmp : boolean = true
-
+  theCheck : boolean;
   constructor(
     private dataService : DataService,
     private authService :  AuthService
