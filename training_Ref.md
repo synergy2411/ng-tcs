@@ -75,3 +75,32 @@ WebpackDevServer - localhost:4200
 
 # to add Angular material component
 - ng add @angular/material
+
+
+# Testing
+ - Component Testing
+    > properties creation
+    > properties poluated from services
+    > template created from properties
+ - Service
+    > methods returning Array
+    > methods returning Observables
+    > methods returning Promises
+ - Pipe
+    > tranform method 
+ - Service populate the Component Properties 
+
+ - ng test --code-coverage
+
+ - ng add @nguniversal/express-engine --clientProject="users-app"
+
+ # Deployment - Firebase Cloud
+ 1. npm install -g firebase-tools
+ 2. firebase login
+ 3. firebase init
+ 4. firebase deploy
+
+ # deployed URL in last folder - Day6 Assignment
+ # 
+
+ synergy2411@outlook.com
