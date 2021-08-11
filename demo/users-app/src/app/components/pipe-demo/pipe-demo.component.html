@@ -20,12 +20,13 @@
   <hr>
 
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let todo of todoCollection | filter : filteredStatus">
+    <li class="list-group-item"
+    *ngFor="let todo of todoCollection; trackBy : trackByFunc | filter : filteredStatus">
       <p>{{todo.label}} <span class="badge badge-primary float-right">{{todo.status}}</span></p>
     </li>
   </ul>
 
 </div>
 
-
+<!-- {{  }} -->
 <!-- ng g p pipes/reverse -->

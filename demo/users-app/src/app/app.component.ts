@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DataService } from './srevices/data.service';
 import firebase from 'firebase';
 import { AuthService } from './srevices/auth.service';
@@ -16,11 +16,13 @@ export class AppComponent implements OnInit{
   constructor(
     private dataService : DataService,
     private authService :  AuthService,
-    private sanitizer : DomSanitizer
+    private sanitizer : DomSanitizer,
+    private cdRef : ChangeDetectorRef
     ){}
 
   ngOnInit(){
     // this.sanitizer.
+    // this.cdRef.
     firebase.initializeApp({
       apiKey: "AIzaSyDUJSor91WEE4AoJd1I9JTH1fOgfhDSuaw",
       authDomain: "the-tcs-users.firebaseapp.com"

@@ -32,6 +32,10 @@ export class PipeDemoComponent implements OnInit {
     debugger;
   }
 
+  trackByFunc(item){
+    return item.label
+  }
+
   constructor() { }
 
   ngOnInit(): void {
