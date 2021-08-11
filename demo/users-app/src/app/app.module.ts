@@ -46,11 +46,13 @@ import { MatCompComponent } from './components/mat-comp/mat-comp.component';
     MatCompComponent
   ],
   imports: [        // Modules - Built-in | Custom
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES),
+    RouterModule.forRoot(APP_ROUTES, {
+    initialNavigation: 'enabled'
+}),
     EmployeeModule,
     BrowserAnimationsModule,
     MatButtonModule,

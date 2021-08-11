@@ -29,6 +29,7 @@ export class PipeDemoComponent implements OnInit {
     // this.todoCollection = [...this.todoCollection, {label : "", status : ""}]
     // Impure Change - Angular will not trigger digest cycle by default, hence need to make pipe impure
     this.todoCollection.push({label : "New Item", status : "pending"})
+    debugger;
   }
 
   constructor() { }
